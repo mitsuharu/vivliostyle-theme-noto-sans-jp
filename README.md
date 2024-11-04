@@ -4,14 +4,13 @@
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@mitsuharu/vivliostyle-theme-noto-sans-jp)](https://npmjs.com/package/@mitsuharu/vivliostyle-theme-noto-sans-jp)
 ![npm: license](https://flat.badgen.net/npm/license/@mitsuharu/vivliostyle-theme-noto-sans-jp)
 
-フォントを Noto Sans JP と Noto Sans Mono に設定するテーマです。フォントのみを対象としているため、他のテーマとの併用は必須です。
+フォントを Noto Sans JP と Noto Sans Mono に設定する Vivliostyle のテーマです。フォントのみを対象としているため、他のテーマとの併用は必須です。
 
 This is a theme that sets fonts to Noto Sans JP and Noto Sans Mono. MUST use it with other themes.
 
 ## Fonts
 
 Google Fonts の Noto Sans JP と Noto Sans Mono を利用しています。Google Fonts のライセンスは商用利用、印刷、再配布を許可しています。
-
 
 ## Install
 
@@ -42,7 +41,6 @@ module.exports = {
 
 - 数学表示で LaTeX 記法を利用すると T3Font (Type 3 font) が利用されます。また、このフォントは PDF に埋め込まれていません。Adobe Acrobat Pro などでアウトライン化してください。
 - 図名などにおいて、全角と半角の間に Times フォントが利用されます。その Times フォントはおそらくゼロ幅かつ埋め込まれているので、問題ないと考える。
-
 
 ## Develop
 
