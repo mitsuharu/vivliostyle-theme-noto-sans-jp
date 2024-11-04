@@ -3,7 +3,7 @@
   "description": "It uses Noto Sans JP and Noto Sans Mono.",
   "version": "0.1.0",
   "author": "Mitsuharu Emoto <mthr1982@gmail.com>",
-  "main": "theme.css",
+  "main": "src/index.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -26,6 +26,7 @@
   },
   "files": [
     "*.css",
+    "*.ttf",
     "example",
     "vivliostyle.config.js"
   ],
