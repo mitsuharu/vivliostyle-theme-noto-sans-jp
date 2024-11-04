@@ -12,18 +12,6 @@ This is a theme that sets fonts to Noto Sans JP and Noto Sans Mono. MUST use it 
 
 Google Fonts の Noto Sans JP と Noto Sans Mono を利用しています。Google Fonts のライセンスは商用利用、印刷、再配布を許可しています。
 
-## Install
-
-```shell
-npm install @mitsuharu/vivliostyle-theme-noto-sans-jp
-```
-
-or
-
-```shell
-yarn add @mitsuharu/vivliostyle-theme-noto-sans-jp
-```
-
 ## Use
 
 In `vivliostyle.config.js`:
@@ -47,7 +35,7 @@ module.exports = {
 ### Files
 
 ```
-vivliostyle-theme@mitsuharu/vivliostyle-theme-noto-sans-jp
+@mitsuharu/vivliostyle-theme-noto-sans-jp
 ├── LICENSE
 ├── README.md
 ├── example
