@@ -1,7 +1,7 @@
 {
   "name": "@mitsuharu/vivliostyle-theme-noto-sans-jp",
-  "description": "It sets fonts to Noto Sans JP and Noto Sans Mono.",
-  "version": "0.1.2",
+  "description": "This is a vivliostyle theme that sets fonts to Noto Sans JP and Noto Sans Mono. If use it, you MUST use with other themes.",
+  "version": "0.1.3",
   "main": "theme.css",
   "scripts": {
     "start": "vivliostyle build && open ./book.pdf",
@@ -14,12 +14,12 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^8.14.1",
+    "@vivliostyle/cli": "^8.16.0",
     "@vivliostyle/theme-techbook": "^1.0.1",
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=8"
+    "@vivliostyle/cli": ">=8.16.0"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
@@ -48,10 +48,10 @@
   },
   "vivliostyle": {
     "theme": {
-      "name": "Vivliostyle Theme Noto Sans Jp",
+      "name": "vivliostyle-theme-noto-sans-jp",
       "author": "Mitsuharu Emoto <mthr1982@gmail.com>",
       "style": "theme.css",
-      "category": "report",
+      "category": "misc",
       "topics": [
         "fonts"
       ]

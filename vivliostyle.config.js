@@ -1,16 +1,15 @@
 module.exports = {
   language: 'ja',
   theme: [
-    'node_modules/@vivliostyle/theme-base',
     'node_modules/@vivliostyle/theme-techbook',
     '.',
   ],
   entry: ['example/default.md'],
   workspaceDir: '.vivliostyle',
   output: [
-    'book.pdf',
+    'dist/book.pdf',
     {
-      path: './book',
+      path: './dist/book',
       format: 'webpub',
     },
   ],

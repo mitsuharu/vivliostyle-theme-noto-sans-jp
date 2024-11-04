@@ -62,12 +62,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mitsuharu/vivliostyle-theme-noto-sans-jp@workspace:."
   dependencies:
-    "@vivliostyle/cli": "npm:^8.14.1"
+    "@vivliostyle/cli": "npm:^8.16.0"
     "@vivliostyle/theme-base": "npm:latest"
     "@vivliostyle/theme-techbook": "npm:^1.0.1"
     vivliostyle-theme-scripts: "npm:^0.3.6"
   peerDependencies:
-    "@vivliostyle/cli": ">=8"
+    "@vivliostyle/cli": ">=8.16"
   peerDependenciesMeta:
     "@vivliostyle/cli":
       optional: true
@@ -634,7 +634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vivliostyle/cli@npm:^8.14.1":
+"@vivliostyle/cli@npm:^8.16.0":
   version: 8.16.0
   resolution: "@vivliostyle/cli@npm:8.16.0"
   dependencies:
