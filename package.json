@@ -1,8 +1,7 @@
 {
   "name": "@mitsuharu/vivliostyle-theme-noto-sans-jp",
   "description": "It sets fonts to Noto Sans JP and Noto Sans Mono.",
-  "version": "0.1.0",
-  "author": "Mitsuharu Emoto <mthr1982@gmail.com>",
+  "version": "0.1.1",
   "main": "theme.css",
   "scripts": {
     "start": "vivliostyle build && open ./book.pdf",
@@ -38,6 +37,15 @@
     "vivliostyle-theme"
   ],
   "license": "MIT",
+  "repository": "https://github.com/mitsuharu/vivliostyle-theme-noto-sans-jp",
+  "author": "Mitsuharu Emoto <mthr1982@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/mitsuharu/vivliostyle-theme-noto-sans-jp/issues"
+  },
+  "homepage": "https://github.com/mitsuharu/vivliostyle-theme-noto-sans-jp#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "vivliostyle": {
     "theme": {
       "name": "Vivliostyle Theme Noto Sans Jp",
