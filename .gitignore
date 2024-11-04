@@ -188,3 +188,4 @@ dist
 # Vivliostyle
 .vivliostyle
 book.pdf
+book/
