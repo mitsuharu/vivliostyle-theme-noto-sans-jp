@@ -184,3 +184,7 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Vivliostyle
+.vivliostyle
+book.pdf

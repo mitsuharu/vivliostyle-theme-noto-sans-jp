@@ -1,11 +1,13 @@
 {
   "name": "@mitsuharu/vivliostyle-theme-noto-sans-jp",
-  "description": "It uses Noto Sans JP and Noto Sans Mono.",
+  "description": "It sets fonts to Noto Sans JP and Noto Sans Mono.",
   "version": "0.1.0",
   "author": "Mitsuharu Emoto <mthr1982@gmail.com>",
-  "main": "src/index.css",
+  "main": "theme.css",
   "scripts": {
+    "start": "vivliostyle build && open ./book.pdf",
     "build": "vivliostyle build",
+    "open": "open ./book.pdf",
     "preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
@@ -13,11 +15,12 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^7.2.3",
-    "vivliostyle-theme-scripts": "^0.3.5"
+    "@vivliostyle/cli": "^8.14.1",
+    "@vivliostyle/theme-techbook": "^1.0.1",
+    "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=7"
+    "@vivliostyle/cli": ">=8"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
@@ -26,7 +29,7 @@
   },
   "files": [
     "*.css",
-    "*.ttf",
+    "fonts",
     "example",
     "vivliostyle.config.js"
   ],

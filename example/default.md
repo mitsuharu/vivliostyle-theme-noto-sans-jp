@@ -102,3 +102,18 @@ This is {Ruby|ルビ}
 ## Level 2
 
 > # Not Sectionize
+
+---
+
+# Code Block
+
+```c
+/* int printf(const char* format, ...) を使う場合。 */
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+{
+    printf("Hello, world!\n");
+    return 0;
+}
+```
