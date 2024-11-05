@@ -19,7 +19,7 @@ In `vivliostyle.config.js`:
 ```js
 module.exports = {
   theme: [
-    '@vivliostyle/theme-techbook'
+    '@vivliostyle/theme-techbook',
     '@mitsuharu/vivliostyle-theme-noto-sans-jp',
   ],
 };
