@@ -63,11 +63,11 @@ __metadata:
   resolution: "@mitsuharu/vivliostyle-theme-noto-sans-jp@workspace:."
   dependencies:
     "@vivliostyle/cli": "npm:^8.16.0"
-    "@vivliostyle/theme-base": "npm:latest"
+    "@vivliostyle/theme-base": "npm:>=1.0.0"
     "@vivliostyle/theme-techbook": "npm:^1.0.1"
     vivliostyle-theme-scripts: "npm:^0.3.6"
   peerDependencies:
-    "@vivliostyle/cli": ">=8.16"
+    "@vivliostyle/cli": ">=8.16.0"
   peerDependenciesMeta:
     "@vivliostyle/cli":
       optional: true
@@ -736,7 +736,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vivliostyle/theme-base@npm:^1.0.1, @vivliostyle/theme-base@npm:latest":
+"@vivliostyle/theme-base@npm:>=1.0.0":
+  version: 2.0.0
+  resolution: "@vivliostyle/theme-base@npm:2.0.0"
+  peerDependencies:
+    "@vivliostyle/cli": ">=7"
+  peerDependenciesMeta:
+    "@vivliostyle/cli":
+      optional: true
+  checksum: 10c0/250ef6a6b602ad428f32c992728a00817163d81f983153eca493cb1dd052fe5c2fd623dbace34c349beacdb254b96126eac202a8042a0fcef6cc28cbb46e6b0d
+  languageName: node
+  linkType: hard
+
+"@vivliostyle/theme-base@npm:^1.0.1":
   version: 1.0.1
   resolution: "@vivliostyle/theme-base@npm:1.0.1"
   peerDependencies:
