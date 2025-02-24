@@ -21,6 +21,12 @@ jobs:
       PDF_PATH: ./dist/book.pdf
 
     steps:
+      # 日本語をインストールする
+      - name: Install Japanese fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
+
       # リポジトリをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v4
