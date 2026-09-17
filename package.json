@@ -9,9 +9,12 @@
     "build": "vivliostyle build",
     "open": "open ./dist/book.pdf",
     "preview": "vivliostyle preview",
-    "validate": "vivliostyle theme validate"
+    "validate": "vivliostyle theme validate",
+    "check": "biome check",
+    "check-write": "biome check --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.13",
     "@vivliostyle/cli": "11.3.3",
     "@vivliostyle/theme-base": "3.0.0",
     "@vivliostyle/theme-techbook": "3.0.0"

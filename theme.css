@@ -48,10 +48,10 @@ https://developers.google.com/fonts/faq?hl=ja
 /* フォントを変更する */
 :root {
   /* 本文のフォント */
-  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-family: "Noto Sans JP", sans-serif;
 
   /* 等幅フォント（コードブロックで利用される）のフォント */
-  --vs-font-family-monospace: 'Noto Sans Mono', 'Noto Sans JP', monospace;
+  --vs-font-family-monospace: "Noto Sans Mono", "Noto Sans JP", monospace;
 
   /*
     theme-base v3 では --vs--monospace-font-family が
