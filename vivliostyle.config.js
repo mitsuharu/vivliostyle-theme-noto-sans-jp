@@ -1,9 +1,6 @@
 module.exports = {
   language: 'ja',
-  theme: [
-    'node_modules/@vivliostyle/theme-techbook',
-    '.',
-  ],
+  theme: ['@vivliostyle/theme-techbook', '.'],
   entry: ['example/default.md'],
   workspaceDir: '.vivliostyle',
   output: [
@@ -13,4 +10,4 @@ module.exports = {
       format: 'webpub',
     },
   ],
-};
+}
