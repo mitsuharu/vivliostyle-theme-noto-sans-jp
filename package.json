@@ -11,18 +11,20 @@
     "preview": "vivliostyle preview",
     "validate": "vivliostyle theme validate"
   },
-  "dependencies": {
-    "@vivliostyle/theme-base": "3.0.0"
-  },
   "devDependencies": {
     "@vivliostyle/cli": "11.3.3",
+    "@vivliostyle/theme-base": "3.0.0",
     "@vivliostyle/theme-techbook": "3.0.0"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=11.3.1"
+    "@vivliostyle/cli": ">=11.3.1",
+    "@vivliostyle/theme-base": ">=3.0.0 <4.0.0"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
+      "optional": true
+    },
+    "@vivliostyle/theme-base": {
       "optional": true
     }
   },
