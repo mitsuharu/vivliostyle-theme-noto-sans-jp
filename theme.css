@@ -42,14 +42,23 @@ https://developers.google.com/fonts/faq?hl=ja
 */
 
 /* フォントの読み込み（読み込み数が多いので別ファイルで定義しました） */
-@import url(./fonts/noto-sans-jp.css); 
+@import url(./fonts/noto-sans-jp.css);
 @import url(./fonts/noto-sans-mono.css);
 
 /* フォントを変更する */
 :root {
-    /* 本文のフォント */
-    --vs-font-family: 'Noto Sans JP', sans-serif;
+  /* 本文のフォント */
+  --vs-font-family: "Noto Sans JP", sans-serif;
 
-    /* 等幅フォント（コードブロックで利用される）のフォント */
-    --vs--monospace-font-family: 'Noto Sans Mono', 'Noto Sans JP', monospace;
+  /* 等幅フォント（コードブロックで利用される）のフォント */
+  --vs-font-family-monospace: "Noto Sans Mono", "Noto Sans JP", monospace;
+
+  /*
+    theme-base v3 では --vs--monospace-font-family が
+    --vs-font-family-monospace を参照するが、
+    theme-techbook のように --vs--monospace-font-family を直接指定するテーマと
+    併用すると、そちらが優先されてしまう。
+    このテーマは他のテーマの後に読み込む前提なので、明示的に上書きする。
+  */
+  --vs--monospace-font-family: var(--vs-font-family-monospace);
 }

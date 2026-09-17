@@ -10,7 +10,12 @@ Google Fonts の Noto Sans JP と Noto Sans Mono を利用しています。Goog
 
 ## Required
 
-- @vivliostyle/cli >= 8.16.0
+- @vivliostyle/cli >= 11.0.0
+- @vivliostyle/theme-base >= 2.0.0
+
+このテーマはフォント用の変数を設定するだけなので、`@vivliostyle/theme-base` の
+v2 系・v3 系のどちらと併用しても動作します（どちらでも PDF に
+Noto Sans JP / Noto Sans Mono が埋め込まれることを確認済みです）。
 
 ## Use
 
@@ -24,6 +29,8 @@ module.exports = {
   ],
 };
 ```
+
+フォント設定を確実に反映させるため、**他のテーマより後ろに並べてください**。
 
 ## Anotation
 
@@ -67,7 +74,7 @@ You can specify your CSS file and manuscript file for preview in vivliostyle.con
 module.exports = {
   language: 'ja',
   theme: [
-    'node_modules/@vivliostyle/theme-techbook',
+    '@vivliostyle/theme-techbook',
     '.'
   ],
   entry: [
@@ -77,7 +84,7 @@ module.exports = {
 }
 ```
 
-Run `vivliostyle-theme-scripts validate` before publishing your package.
+Run `vivliostyle theme validate` before publishing your package.
 
 ```bash
 npm run validate

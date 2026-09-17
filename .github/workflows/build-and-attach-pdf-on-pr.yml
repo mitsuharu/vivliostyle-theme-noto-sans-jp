@@ -1,0 +1,115 @@
+# PR を作成したら example のサンプル原稿から PDF を作成して、その PDF を PR に添付する
+# 見た目の差異を確認できるように、変更前（base ブランチ）の PDF も一緒に添付する
+
+name: Build and Attach PDF on Pull-Request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: build-and-attach-pdf-on-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-attach-pdf-on-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # 環境変数を定義
+    env:
+      # このPRで生成される PDF のパス
+      PDF_PATH: ./dist/book.pdf
+      # 変更前（base ブランチ）の PDF を生成する作業ディレクトリ
+      BASE_DIR: ../base
+      # 変更前（base ブランチ）の PDF のパス（アップロードのためワークスペース内に置く）
+      BASE_PDF_PATH: ./dist/book-base.pdf
+
+    steps:
+      # リポジトリをチェックアウト（base ブランチもビルドするので全履歴を取得する）
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      # Node.jsをセットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: '.node-version'
+
+      # 依存パッケージをインストールする
+      - name: Install dependencies
+        run: |
+          corepack enable
+          yarn install --immutable
+
+      # このPRの内容で PDF を作成する
+      - name: Make PDF
+        run: yarn pdf
+
+      # PDFが生成されたかどうかをチェックする
+      - name: Check if PDF exists
+        run: |
+          if [ ! -f "${PDF_PATH}" ]; then
+            echo "エラー: PDF の生成に失敗しました。"
+            exit 1
+          fi
+
+      # 見た目の比較用に、変更前（base ブランチ）の PDF も作成する
+      # base が壊れている場合もあるので、失敗しても PR 自体は失敗させない
+      - name: Make PDF of base branch
+        id: base-pdf
+        continue-on-error: true
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git worktree add "${BASE_DIR}" "${BASE_SHA}"
+          (cd "${BASE_DIR}" && yarn install --immutable && yarn pdf)
+          cp "${BASE_DIR}/dist/book.pdf" "${BASE_PDF_PATH}"
+
+      # アーティファクトとしてPDFをアップロード
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        id: artifact-upload-step
+        with:
+          name: 'book.pdf'
+          path: '${{ env.PDF_PATH }}'
+          if-no-files-found: error
+          archive: false
+
+      # 比較用に変更前のPDFをアップロード
+      - name: Upload PDF of base branch as artifact
+        if: steps.base-pdf.outcome == 'success'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        id: base-artifact-upload-step
+        with:
+          name: 'book-base.pdf'
+          path: '${{ env.BASE_PDF_PATH }}'
+          if-no-files-found: error
+          archive: false
+
+      # PRにPDFのリンクを含むコメントを投稿または更新
+      - name: Create or Update PR Comment
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
+        env:
+          ARTIFACT_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+          BASE_ARTIFACT_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.base-artifact-upload-step.outputs.artifact-id }}'
+          HAS_BASE_PDF: ${{ steps.base-pdf.outcome == 'success' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            :page_facing_up: サンプル原稿 (`example/default.md`) の PDF が作成されました
+
+            | | PDF |
+            | :--- | :--- |
+            | このPR | [book.pdf](${{ env.ARTIFACT_URL }}) |
+            | 変更前 (`${{ github.base_ref }}`) | ${{ env.HAS_BASE_PDF == 'true' && format('[book-base.pdf]({0})', env.BASE_ARTIFACT_URL) || 'ビルドできませんでした' }} |
+
+            2つを見比べると、テーマの変更による見た目の差異を確認できます。

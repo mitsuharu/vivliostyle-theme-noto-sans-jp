@@ -1,28 +1,33 @@
 {
   "name": "@mitsuharu/vivliostyle-theme-noto-sans-jp",
   "description": "This is a vivliostyle theme that sets fonts to Noto Sans JP and Noto Sans Mono. If use it, you MUST use with other themes.",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "main": "theme.css",
   "scripts": {
-    "start": "vivliostyle build && open ./book.pdf",
+    "start": "vivliostyle build && open ./dist/book.pdf",
+    "pdf": "vivliostyle build",
     "build": "vivliostyle build",
-    "open": "open ./book.pdf",
+    "open": "open ./dist/book.pdf",
     "preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate"
-  },
-  "dependencies": {
-    "@vivliostyle/theme-base": ">=1.0.0"
+    "validate": "vivliostyle theme validate",
+    "check": "biome check",
+    "check-write": "biome check --write"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^8.16.0",
-    "@vivliostyle/theme-techbook": "^1.0.1",
-    "vivliostyle-theme-scripts": "^0.3.6"
+    "@biomejs/biome": "2.5.13",
+    "@vivliostyle/cli": "11.3.3",
+    "@vivliostyle/theme-base": "3.0.0",
+    "@vivliostyle/theme-techbook": "3.0.0"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=8.16.0"
+    "@vivliostyle/cli": ">=11.0.0",
+    "@vivliostyle/theme-base": ">=2.0.0"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
+      "optional": true
+    },
+    "@vivliostyle/theme-base": {
       "optional": true
     }
   },
@@ -57,5 +62,5 @@
       ]
     }
   },
-  "packageManager": "yarn@4.5.1"
+  "packageManager": "yarn@4.16.0"
 }
