@@ -10,10 +10,12 @@ Google Fonts の Noto Sans JP と Noto Sans Mono を利用しています。Goog
 
 ## Required
 
-- @vivliostyle/cli >= 11.3.1
+- @vivliostyle/cli >= 11.0.0
+- @vivliostyle/theme-base >= 2.0.0
 
-Vivliostyle Themes v3（`@vivliostyle/theme-base` 3.x）系のテーマです。
-v2 系以前の CLI（`@vivliostyle/cli` 10 以下）では利用できません。
+このテーマはフォント用の変数を設定するだけなので、`@vivliostyle/theme-base` の
+v2 系・v3 系のどちらと併用しても動作します（どちらでも PDF に
+Noto Sans JP / Noto Sans Mono が埋め込まれることを確認済みです）。
 
 ## Use
 
